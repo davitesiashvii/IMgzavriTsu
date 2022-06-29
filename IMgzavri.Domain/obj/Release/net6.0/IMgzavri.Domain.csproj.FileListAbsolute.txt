@@ -1,0 +1,15 @@
+C:\Projects\IMgzavri\IMgzavri.Domain\bin\Release\net6.0\IMgzavri.Domain.deps.json
+C:\Projects\IMgzavri\IMgzavri.Domain\bin\Release\net6.0\IMgzavri.Domain.dll
+C:\Projects\IMgzavri\IMgzavri.Domain\bin\Release\net6.0\IMgzavri.Domain.pdb
+C:\Projects\IMgzavri\IMgzavri.Domain\bin\Release\net6.0\IMgzavri.Shared.dll
+C:\Projects\IMgzavri\IMgzavri.Domain\bin\Release\net6.0\IMgzavri.Shared.pdb
+C:\Projects\IMgzavri\IMgzavri.Domain\obj\Release\net6.0\IMgzavri.Domain.csproj.AssemblyReference.cache
+C:\Projects\IMgzavri\IMgzavri.Domain\obj\Release\net6.0\IMgzavri.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Projects\IMgzavri\IMgzavri.Domain\obj\Release\net6.0\IMgzavri.Domain.AssemblyInfoInputs.cache
+C:\Projects\IMgzavri\IMgzavri.Domain\obj\Release\net6.0\IMgzavri.Domain.AssemblyInfo.cs
+C:\Projects\IMgzavri\IMgzavri.Domain\obj\Release\net6.0\IMgzavri.Domain.csproj.CoreCompileInputs.cache
+C:\Projects\IMgzavri\IMgzavri.Domain\obj\Release\net6.0\IMgzavri.Domain.csproj.CopyComplete
+C:\Projects\IMgzavri\IMgzavri.Domain\obj\Release\net6.0\IMgzavri.Domain.dll
+C:\Projects\IMgzavri\IMgzavri.Domain\obj\Release\net6.0\refint\IMgzavri.Domain.dll
+C:\Projects\IMgzavri\IMgzavri.Domain\obj\Release\net6.0\IMgzavri.Domain.pdb
+C:\Projects\IMgzavri\IMgzavri.Domain\obj\Release\net6.0\ref\IMgzavri.Domain.dll

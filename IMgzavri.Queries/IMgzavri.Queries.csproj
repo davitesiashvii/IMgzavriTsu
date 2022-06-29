@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\IMgzavri.Infrastructure\IMgzavri.Infrastructure.csproj" />
+    <ProjectReference Include="..\IMgzavri.Shared\IMgzavri.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SimpleSoft.Mediator" Version="2.2.0" />
+  </ItemGroup>
+
+</Project>
