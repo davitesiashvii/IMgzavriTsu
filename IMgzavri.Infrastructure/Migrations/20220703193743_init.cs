@@ -83,7 +83,9 @@ namespace IMgzavri.Infrastructure.Migrations
                     VerifyUser = table.Column<bool>(type: "bit", nullable: false),
                     PhotoId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    RendomCode = table.Column<int>(type: "int", nullable: true)
+                    RendomCode = table.Column<int>(type: "int", nullable: true),
+                    Rate = table.Column<double>(type: "float", nullable: true),
+                    RateCount = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -144,6 +146,7 @@ namespace IMgzavri.Infrastructure.Migrations
                     CarId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Seat = table.Column<int>(type: "int", nullable: false),
+                    FreeSeat = table.Column<int>(type: "int", nullable: true),
                     CreatedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Price = table.Column<double>(type: "float", nullable: false),
                     RoutFromId = table.Column<int>(type: "int", nullable: false),
@@ -151,6 +154,8 @@ namespace IMgzavri.Infrastructure.Migrations
                     DateFrom = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DateTo = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IsComplited = table.Column<bool>(type: "bit", nullable: true),
+                    TotalReservedSeat = table.Column<int>(type: "int", nullable: true),
+                    IsExcecute = table.Column<bool>(type: "bit", nullable: true),
                     CreateUserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                 },
                 constraints: table =>
@@ -183,6 +188,33 @@ namespace IMgzavri.Infrastructure.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Clients",
+                columns: table => new
+                {
+                    Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    ReservedSeat = table.Column<int>(type: "int", nullable: false),
+                    ClientStart = table.Column<bool>(type: "bit", nullable: false),
+                    UserId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    StatmentId = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    StatementId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
+                    UsersId = table.Column<Guid>(type: "uniqueidentifier", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Clients", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Clients_Statements_StatementId",
+                        column: x => x.StatementId,
+                        principalTable: "Statements",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Clients_Users_UsersId",
+                        column: x => x.UsersId,
+                        principalTable: "Users",
+                        principalColumn: "Id");
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_CarImages_CarId",
                 table: "CarImages",
@@ -192,6 +224,16 @@ namespace IMgzavri.Infrastructure.Migrations
                 name: "IX_Cars_UserId",
                 table: "Cars",
                 column: "UserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Clients_StatementId",
+                table: "Clients",
+                column: "StatementId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Clients_UsersId",
+                table: "Clients",
+                column: "UsersId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_RefreshTokens_UserId",
@@ -219,16 +261,19 @@ namespace IMgzavri.Infrastructure.Migrations
                 name: "Cities");
 
             migrationBuilder.DropTable(
+                name: "Clients");
+
+            migrationBuilder.DropTable(
                 name: "Files");
 
             migrationBuilder.DropTable(
                 name: "RefreshTokens");
 
             migrationBuilder.DropTable(
-                name: "Statements");
+                name: "Cars");
 
             migrationBuilder.DropTable(
-                name: "Cars");
+                name: "Statements");
 
             migrationBuilder.DropTable(
                 name: "Users");

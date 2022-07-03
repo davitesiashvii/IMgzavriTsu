@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZaJdGRaTyUgH5VSxrLJGT2w6Aki/MWGplkAsuvaYU9QUnPP96tVm8cahweyfTJd7U5qJrBok3+6Cf/vmNgw8sA==",
+  "dgSpecHash": "cPIKfzzzxwATjI8lNv0mKpheHjxVjSJDievQXFC1cEHGw7OSp9NNn2cjwE0Zl67WcYZ5Dq3DfhrEfMOrp76y/A==",
   "success": true,
-  "projectFilePath": "C:\\Projects\\IMgzavri\\IMgzavri.Domain\\IMgzavri.Domain.csproj",
+  "projectFilePath": "D:\\img\\IMgzavriTsu\\IMgzavri.Domain\\IMgzavri.Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\davit\\.nuget\\packages\\mailkit\\3.3.0\\mailkit.3.3.0.nupkg.sha512",
     "C:\\Users\\davit\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.5\\microsoft.entityframeworkcore.6.0.5.nupkg.sha512",

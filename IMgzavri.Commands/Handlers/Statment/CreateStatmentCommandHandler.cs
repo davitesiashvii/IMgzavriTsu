@@ -5,7 +5,6 @@ using IMgzavri.Infrastructure.Db;
 using IMgzavri.Infrastructure.Service;
 using IMgzavri.Shared.Domain.Models;
 
-
 namespace IMgzavri.Commands.Handlers.Statment
 {
     public class CreateStatmentCommandHandler : CommandHandler<CreateStatmentCommand>
@@ -31,6 +30,7 @@ namespace IMgzavri.Commands.Handlers.Statment
                 DateTo = cmd.DateTo,
                 IsComplited = false,
                 CreateUserId = userId,
+                FreeSeat = 0
             };
             await context.Statements.AddAsync(statment);
             await context.SaveChangesAsync();

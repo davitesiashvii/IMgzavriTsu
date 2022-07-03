@@ -49,5 +49,38 @@ namespace IMgzavri.Api.Controllers
 
             return Ok(result);
         }
+
+        [HttpPost("reservation-statment")]
+        public async Task<IActionResult> ReservationStatment([FromBody] ReservationStatmentCommand cmd, CancellationToken ct)
+        {
+            var result = await Mediator.SendAsync(cmd, ct);
+
+            return Ok(result);
+        }
+
+        //[HttpPost("excecute-statment")]
+        //public async Task<IActionResult> ExcecuteStatment([FromBody] ExcecuteStatmentCommand cmd, CancellationToken ct)
+        //{
+        //    var result = await Mediator.SendAsync(cmd, ct);
+
+        //    return Ok(result);
+        //}
+
+        [HttpGet("get-client-statments")]
+        public async Task<IActionResult> GetUserExcecuteStatments(CancellationToken ct)
+        {
+            var result = await Mediator.FetchAsync(new GetUserExcecuteStatmentsQuery(), ct);
+
+            return Ok(result);
+        }
+
+        [HttpGet("get-user-statments")]
+        public async Task<IActionResult> GetUserStatments(CancellationToken ct)
+        {
+            var result = await Mediator.FetchAsync(new GetUserStatmentsQuery(), ct);
+
+            return Ok(result);
+        }
+
     }
 }

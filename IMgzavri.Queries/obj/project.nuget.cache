@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "C7fqh1R424p4eN3Noej/36J15YSOjuARRRiB9CPhFTFF0zmPzxcyLa1VCrKG9l0KmQ62JESwrc8MyKUtpecgZw==",
+  "dgSpecHash": "3W2YvB0bieXgPjoTx0H35+ePKvj5BCIlCg7H/5DxTYoBneZCnZSfVl4TOb1FBu4Zc6HugGTjU7zHbuy19EBaCA==",
   "success": true,
-  "projectFilePath": "C:\\Projects\\IMgzavri\\IMgzavri.Queries\\IMgzavri.Queries.csproj",
+  "projectFilePath": "D:\\img\\IMgzavriTsu\\IMgzavri.Queries\\IMgzavri.Queries.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\davit\\.nuget\\packages\\mailkit\\3.3.0\\mailkit.3.3.0.nupkg.sha512",
     "C:\\Users\\davit\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

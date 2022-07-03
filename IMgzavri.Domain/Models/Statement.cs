@@ -12,6 +12,7 @@ namespace IMgzavri.Domain.Models
         public Guid CarId { get; set; }
         public string? Description { get; set; }
         public int Seat { get; set; }
+        public int? FreeSeat { get; set; }
         public DateTime CreatedDate { get; set; }
         public double Price { get; set; }
         public int RoutFromId { get; set; }
@@ -19,8 +20,11 @@ namespace IMgzavri.Domain.Models
         public DateTime DateFrom { get; set; }
         public DateTime DateTo { get; set; }
         public bool? IsComplited { get; set; }
+        public int? TotalReservedSeat { get; set; }
 
         public Guid CreateUserId { get; set; }
         public Users CreateUser { get;set; }
+
+        public ICollection<Client> Clients { get; set; }
     }
 }

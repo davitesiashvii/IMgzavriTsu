@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace IMgzavri.Infrastructure.Migrations
 {
     [DbContext(typeof(IMgzavriDbContext))]
-    [Migration("20220629175842_init")]
+    [Migration("20220703193743_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -119,6 +119,39 @@ namespace IMgzavri.Infrastructure.Migrations
                     b.ToTable("Cities");
                 });
 
+            modelBuilder.Entity("IMgzavri.Domain.Models.Client", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool>("ClientStart")
+                        .HasColumnType("bit");
+
+                    b.Property<int>("ReservedSeat")
+                        .HasColumnType("int");
+
+                    b.Property<Guid?>("StatementId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("StatmentId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("UsersId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("StatementId");
+
+                    b.HasIndex("UsersId");
+
+                    b.ToTable("Clients");
+                });
+
             modelBuilder.Entity("IMgzavri.Domain.Models.File", b =>
                 {
                     b.Property<Guid>("Id")
@@ -215,7 +248,13 @@ namespace IMgzavri.Infrastructure.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("FreeSeat")
+                        .HasColumnType("int");
+
                     b.Property<bool?>("IsComplited")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("IsExcecute")
                         .HasColumnType("bit");
 
                     b.Property<double>("Price")
@@ -228,6 +267,9 @@ namespace IMgzavri.Infrastructure.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("Seat")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("TotalReservedSeat")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -270,6 +312,12 @@ namespace IMgzavri.Infrastructure.Migrations
                     b.Property<Guid?>("PhotoId")
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<double?>("Rate")
+                        .HasColumnType("float");
+
+                    b.Property<int?>("RateCount")
+                        .HasColumnType("int");
+
                     b.Property<int?>("RendomCode")
                         .HasColumnType("int");
 
@@ -303,6 +351,17 @@ namespace IMgzavri.Infrastructure.Migrations
                     b.Navigation("Car");
                 });
 
+            modelBuilder.Entity("IMgzavri.Domain.Models.Client", b =>
+                {
+                    b.HasOne("IMgzavri.Domain.Models.Statement", null)
+                        .WithMany("Clients")
+                        .HasForeignKey("StatementId");
+
+                    b.HasOne("IMgzavri.Domain.Models.Users", null)
+                        .WithMany("Clients")
+                        .HasForeignKey("UsersId");
+                });
+
             modelBuilder.Entity("IMgzavri.Domain.Models.RefreshToken", b =>
                 {
                     b.HasOne("IMgzavri.Domain.Models.Users", "User")
@@ -330,9 +389,16 @@ namespace IMgzavri.Infrastructure.Migrations
                     b.Navigation("CarImages");
                 });
 
+            modelBuilder.Entity("IMgzavri.Domain.Models.Statement", b =>
+                {
+                    b.Navigation("Clients");
+                });
+
             modelBuilder.Entity("IMgzavri.Domain.Models.Users", b =>
                 {
                     b.Navigation("Cars");
+
+                    b.Navigation("Clients");
 
                     b.Navigation("RefreshTokens");
 

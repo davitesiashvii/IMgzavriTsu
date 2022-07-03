@@ -19,6 +19,7 @@ namespace IMgzavri.Queries.ViewModels.Statment
         public DateTime DateFrom { get; set; }
         public DateTime DateTo { get; set; }
         public bool? IsComplited { get; set; }
+        public int freeSeat { get; set; }
 
         public Guid CreateUserId { get; set; }
 

@@ -26,6 +26,14 @@ namespace IMgzavri.Api.Controllers
             return Ok(result);
         }
 
+        [HttpGet("get-rate/{userId}/{StatmentId}")]
+        public async Task<IActionResult> GetRate(string userId,string StatmentId ,CancellationToken ct)
+        {
+            var result = await Mediator.FetchAsync(new GetRateQuery(userId,StatmentId), ct);
+
+            return Ok(result);
+        }
+
         [HttpPost("edit-user")]
         public async Task<IActionResult> EditUser([FromBody] EditUserCommand cmd, CancellationToken ct)
         {
@@ -33,5 +41,15 @@ namespace IMgzavri.Api.Controllers
 
             return Ok(result);
         }
+
+        [HttpPost("create-rate")]
+        public async Task<IActionResult> CreateRate([FromBody] CreateRateCommand cmd, CancellationToken ct)
+        {
+            var result = await Mediator.SendAsync(cmd, ct);
+
+            return Ok(result);
+        }
+
+
     }
 }

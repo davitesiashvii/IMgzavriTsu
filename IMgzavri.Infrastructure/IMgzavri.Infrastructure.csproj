@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="FileService\**" />
+    <EmbeddedResource Remove="FileService\**" />
+    <None Remove="FileService\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.5">
       <PrivateAssets>all</PrivateAssets>
@@ -21,10 +27,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\IMgzavri.Domain\IMgzavri.Domain.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="FileService\" />
   </ItemGroup>
 
 </Project>

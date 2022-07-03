@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "x9A64fm1iaKJ9LKIQPlJZCw7OcUUtzNCDCPwB4n6tna8LH4RTwLlpjfl/0HT5Sxz3qpu/lPa3+xZALEnsFP5kg==",
+  "dgSpecHash": "3xZ190pYtoeO+7yHfTwBZA2oHk0p8OD8l/OR+0V/oQXupId3D4ubSGd4KxtCUPASCaRhrOOEPyKYWGF754HBFA==",
   "success": true,
-  "projectFilePath": "C:\\Projects\\IMgzavri\\IMgzavri.Api\\IMgzavri.Api.csproj",
+  "projectFilePath": "D:\\img\\IMgzavriTsu\\IMgzavri.Api\\IMgzavri.Api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\davit\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\davit\\.nuget\\packages\\mailkit\\3.3.0\\mailkit.3.3.0.nupkg.sha512",

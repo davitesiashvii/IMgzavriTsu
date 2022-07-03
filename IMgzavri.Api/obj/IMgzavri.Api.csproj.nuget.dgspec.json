@@ -1,18 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projects\\IMgzavri\\IMgzavri.Api\\IMgzavri.Api.csproj": {}
+    "D:\\img\\IMgzavriTsu\\IMgzavri.Api\\IMgzavri.Api.csproj": {}
   },
   "projects": {
-    "C:\\Projects\\IMgzavri\\IMgzavri.Api\\IMgzavri.Api.csproj": {
+    "D:\\img\\IMgzavriTsu\\IMgzavri.Api\\IMgzavri.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\IMgzavri\\IMgzavri.Api\\IMgzavri.Api.csproj",
+        "projectUniqueName": "D:\\img\\IMgzavriTsu\\IMgzavri.Api\\IMgzavri.Api.csproj",
         "projectName": "IMgzavri.Api",
-        "projectPath": "C:\\Projects\\IMgzavri\\IMgzavri.Api\\IMgzavri.Api.csproj",
+        "projectPath": "D:\\img\\IMgzavriTsu\\IMgzavri.Api\\IMgzavri.Api.csproj",
         "packagesPath": "C:\\Users\\davit\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\IMgzavri\\IMgzavri.Api\\obj\\",
+        "outputPath": "D:\\img\\IMgzavriTsu\\IMgzavri.Api\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
           "C:\\Users\\davit\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -28,17 +31,17 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Projects\\IMgzavri\\IMgzavri.Commands\\IMgzavri.Commands.csproj": {
-                "projectPath": "C:\\Projects\\IMgzavri\\IMgzavri.Commands\\IMgzavri.Commands.csproj"
+              "D:\\img\\IMgzavriTsu\\IMgzavri.Commands\\IMgzavri.Commands.csproj": {
+                "projectPath": "D:\\img\\IMgzavriTsu\\IMgzavri.Commands\\IMgzavri.Commands.csproj"
               },
-              "C:\\Projects\\IMgzavri\\IMgzavri.Domain\\IMgzavri.Domain.csproj": {
-                "projectPath": "C:\\Projects\\IMgzavri\\IMgzavri.Domain\\IMgzavri.Domain.csproj"
+              "D:\\img\\IMgzavriTsu\\IMgzavri.Domain\\IMgzavri.Domain.csproj": {
+                "projectPath": "D:\\img\\IMgzavriTsu\\IMgzavri.Domain\\IMgzavri.Domain.csproj"
               },
-              "C:\\Projects\\IMgzavri\\IMgzavri.Infrastructure\\IMgzavri.Infrastructure.csproj": {
-                "projectPath": "C:\\Projects\\IMgzavri\\IMgzavri.Infrastructure\\IMgzavri.Infrastructure.csproj"
+              "D:\\img\\IMgzavriTsu\\IMgzavri.Infrastructure\\IMgzavri.Infrastructure.csproj": {
+                "projectPath": "D:\\img\\IMgzavriTsu\\IMgzavri.Infrastructure\\IMgzavri.Infrastructure.csproj"
               },
-              "C:\\Projects\\IMgzavri\\IMgzavri.Queries\\IMgzavri.Queries.csproj": {
-                "projectPath": "C:\\Projects\\IMgzavri\\IMgzavri.Queries\\IMgzavri.Queries.csproj"
+              "D:\\img\\IMgzavriTsu\\IMgzavri.Queries\\IMgzavri.Queries.csproj": {
+                "projectPath": "D:\\img\\IMgzavriTsu\\IMgzavri.Queries\\IMgzavri.Queries.csproj"
               }
             }
           }
@@ -110,15 +113,18 @@
         }
       }
     },
-    "C:\\Projects\\IMgzavri\\IMgzavri.Commands\\IMgzavri.Commands.csproj": {
+    "D:\\img\\IMgzavriTsu\\IMgzavri.Commands\\IMgzavri.Commands.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\IMgzavri\\IMgzavri.Commands\\IMgzavri.Commands.csproj",
+        "projectUniqueName": "D:\\img\\IMgzavriTsu\\IMgzavri.Commands\\IMgzavri.Commands.csproj",
         "projectName": "IMgzavri.Commands",
-        "projectPath": "C:\\Projects\\IMgzavri\\IMgzavri.Commands\\IMgzavri.Commands.csproj",
+        "projectPath": "D:\\img\\IMgzavriTsu\\IMgzavri.Commands\\IMgzavri.Commands.csproj",
         "packagesPath": "C:\\Users\\davit\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\IMgzavri\\IMgzavri.Commands\\obj\\",
+        "outputPath": "D:\\img\\IMgzavriTsu\\IMgzavri.Commands\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
           "C:\\Users\\davit\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -134,11 +140,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Projects\\IMgzavri\\IMgzavri.Infrastructure\\IMgzavri.Infrastructure.csproj": {
-                "projectPath": "C:\\Projects\\IMgzavri\\IMgzavri.Infrastructure\\IMgzavri.Infrastructure.csproj"
+              "D:\\img\\IMgzavriTsu\\IMgzavri.Infrastructure\\IMgzavri.Infrastructure.csproj": {
+                "projectPath": "D:\\img\\IMgzavriTsu\\IMgzavri.Infrastructure\\IMgzavri.Infrastructure.csproj"
               },
-              "C:\\Projects\\IMgzavri\\IMgzavri.Shared\\IMgzavri.Shared.csproj": {
-                "projectPath": "C:\\Projects\\IMgzavri\\IMgzavri.Shared\\IMgzavri.Shared.csproj"
+              "D:\\img\\IMgzavriTsu\\IMgzavri.Shared\\IMgzavri.Shared.csproj": {
+                "projectPath": "D:\\img\\IMgzavriTsu\\IMgzavri.Shared\\IMgzavri.Shared.csproj"
               }
             }
           }
@@ -177,15 +183,18 @@
         }
       }
     },
-    "C:\\Projects\\IMgzavri\\IMgzavri.Domain\\IMgzavri.Domain.csproj": {
+    "D:\\img\\IMgzavriTsu\\IMgzavri.Domain\\IMgzavri.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\IMgzavri\\IMgzavri.Domain\\IMgzavri.Domain.csproj",
+        "projectUniqueName": "D:\\img\\IMgzavriTsu\\IMgzavri.Domain\\IMgzavri.Domain.csproj",
         "projectName": "IMgzavri.Domain",
-        "projectPath": "C:\\Projects\\IMgzavri\\IMgzavri.Domain\\IMgzavri.Domain.csproj",
+        "projectPath": "D:\\img\\IMgzavriTsu\\IMgzavri.Domain\\IMgzavri.Domain.csproj",
         "packagesPath": "C:\\Users\\davit\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\IMgzavri\\IMgzavri.Domain\\obj\\",
+        "outputPath": "D:\\img\\IMgzavriTsu\\IMgzavri.Domain\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
           "C:\\Users\\davit\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -201,8 +210,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Projects\\IMgzavri\\IMgzavri.Shared\\IMgzavri.Shared.csproj": {
-                "projectPath": "C:\\Projects\\IMgzavri\\IMgzavri.Shared\\IMgzavri.Shared.csproj"
+              "D:\\img\\IMgzavriTsu\\IMgzavri.Shared\\IMgzavri.Shared.csproj": {
+                "projectPath": "D:\\img\\IMgzavriTsu\\IMgzavri.Shared\\IMgzavri.Shared.csproj"
               }
             }
           }
@@ -235,15 +244,18 @@
         }
       }
     },
-    "C:\\Projects\\IMgzavri\\IMgzavri.Infrastructure\\IMgzavri.Infrastructure.csproj": {
+    "D:\\img\\IMgzavriTsu\\IMgzavri.Infrastructure\\IMgzavri.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\IMgzavri\\IMgzavri.Infrastructure\\IMgzavri.Infrastructure.csproj",
+        "projectUniqueName": "D:\\img\\IMgzavriTsu\\IMgzavri.Infrastructure\\IMgzavri.Infrastructure.csproj",
         "projectName": "IMgzavri.Infrastructure",
-        "projectPath": "C:\\Projects\\IMgzavri\\IMgzavri.Infrastructure\\IMgzavri.Infrastructure.csproj",
+        "projectPath": "D:\\img\\IMgzavriTsu\\IMgzavri.Infrastructure\\IMgzavri.Infrastructure.csproj",
         "packagesPath": "C:\\Users\\davit\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\IMgzavri\\IMgzavri.Infrastructure\\obj\\",
+        "outputPath": "D:\\img\\IMgzavriTsu\\IMgzavri.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
           "C:\\Users\\davit\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -259,8 +271,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Projects\\IMgzavri\\IMgzavri.Domain\\IMgzavri.Domain.csproj": {
-                "projectPath": "C:\\Projects\\IMgzavri\\IMgzavri.Domain\\IMgzavri.Domain.csproj"
+              "D:\\img\\IMgzavriTsu\\IMgzavri.Domain\\IMgzavri.Domain.csproj": {
+                "projectPath": "D:\\img\\IMgzavriTsu\\IMgzavri.Domain\\IMgzavri.Domain.csproj"
               }
             }
           }
@@ -315,15 +327,18 @@
         }
       }
     },
-    "C:\\Projects\\IMgzavri\\IMgzavri.Queries\\IMgzavri.Queries.csproj": {
+    "D:\\img\\IMgzavriTsu\\IMgzavri.Queries\\IMgzavri.Queries.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\IMgzavri\\IMgzavri.Queries\\IMgzavri.Queries.csproj",
+        "projectUniqueName": "D:\\img\\IMgzavriTsu\\IMgzavri.Queries\\IMgzavri.Queries.csproj",
         "projectName": "IMgzavri.Queries",
-        "projectPath": "C:\\Projects\\IMgzavri\\IMgzavri.Queries\\IMgzavri.Queries.csproj",
+        "projectPath": "D:\\img\\IMgzavriTsu\\IMgzavri.Queries\\IMgzavri.Queries.csproj",
         "packagesPath": "C:\\Users\\davit\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\IMgzavri\\IMgzavri.Queries\\obj\\",
+        "outputPath": "D:\\img\\IMgzavriTsu\\IMgzavri.Queries\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
           "C:\\Users\\davit\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -339,11 +354,11 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Projects\\IMgzavri\\IMgzavri.Infrastructure\\IMgzavri.Infrastructure.csproj": {
-                "projectPath": "C:\\Projects\\IMgzavri\\IMgzavri.Infrastructure\\IMgzavri.Infrastructure.csproj"
+              "D:\\img\\IMgzavriTsu\\IMgzavri.Infrastructure\\IMgzavri.Infrastructure.csproj": {
+                "projectPath": "D:\\img\\IMgzavriTsu\\IMgzavri.Infrastructure\\IMgzavri.Infrastructure.csproj"
               },
-              "C:\\Projects\\IMgzavri\\IMgzavri.Shared\\IMgzavri.Shared.csproj": {
-                "projectPath": "C:\\Projects\\IMgzavri\\IMgzavri.Shared\\IMgzavri.Shared.csproj"
+              "D:\\img\\IMgzavriTsu\\IMgzavri.Shared\\IMgzavri.Shared.csproj": {
+                "projectPath": "D:\\img\\IMgzavriTsu\\IMgzavri.Shared\\IMgzavri.Shared.csproj"
               }
             }
           }
@@ -382,15 +397,18 @@
         }
       }
     },
-    "C:\\Projects\\IMgzavri\\IMgzavri.Shared\\IMgzavri.Shared.csproj": {
+    "D:\\img\\IMgzavriTsu\\IMgzavri.Shared\\IMgzavri.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\IMgzavri\\IMgzavri.Shared\\IMgzavri.Shared.csproj",
+        "projectUniqueName": "D:\\img\\IMgzavriTsu\\IMgzavri.Shared\\IMgzavri.Shared.csproj",
         "projectName": "IMgzavri.Shared",
-        "projectPath": "C:\\Projects\\IMgzavri\\IMgzavri.Shared\\IMgzavri.Shared.csproj",
+        "projectPath": "D:\\img\\IMgzavriTsu\\IMgzavri.Shared\\IMgzavri.Shared.csproj",
         "packagesPath": "C:\\Users\\davit\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\IMgzavri\\IMgzavri.Shared\\obj\\",
+        "outputPath": "D:\\img\\IMgzavriTsu\\IMgzavri.Shared\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
           "C:\\Users\\davit\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"

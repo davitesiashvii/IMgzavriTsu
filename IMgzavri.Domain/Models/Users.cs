@@ -28,9 +28,13 @@ namespace IMgzavri.Domain.Models
 
         public int? RendomCode { get; set; }
 
+        public double? Rate { get; set; }
+        public int? RateCount { get; set; }
+
         public ICollection<RefreshToken> RefreshTokens { get; set; }
         public ICollection<Car> Cars { get; set; }
         public ICollection<Statement> Statements { get; set; }
+        public ICollection<Client> Clients { get; set; }
 
     }
 

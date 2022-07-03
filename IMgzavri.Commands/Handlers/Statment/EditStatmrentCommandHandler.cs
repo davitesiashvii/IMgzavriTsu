@@ -28,6 +28,7 @@ namespace IMgzavri.Commands.Handlers.Statment
             statment.DateFrom = cmd.DateFrom;
             statment.DateTo = cmd.DateTo;  
             statment.IsComplited = cmd.IsComplited == null ? false : cmd.IsComplited;
+            statment.FreeSeat = 0;
 
             context.Statements.Update(statment);
             await context.SaveChangesAsync();

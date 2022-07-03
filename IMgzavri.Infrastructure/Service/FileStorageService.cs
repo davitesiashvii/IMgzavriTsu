@@ -139,7 +139,7 @@ namespace IMgzavri.Infrastructure.Service
                 result.Exists = false;
             }
 
-            var path = FileHelper.BuildPath(file, "D:\\IRecommend", "Files");
+            var path = FileHelper.BuildPath(file, "D:\\IMgzavri", "Files");
 
             if (!FileHelper.Exists(path))
             {

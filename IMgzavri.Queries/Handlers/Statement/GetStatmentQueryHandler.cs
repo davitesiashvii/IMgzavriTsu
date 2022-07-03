@@ -53,11 +53,24 @@ namespace IMgzavri.Queries.Handlers.Statement
                 DateTo = statment.DateTo,
                 IsComplited = statment.IsComplited,
                 CreateUserId = userId,
-                ImageLink = fmRes == null ? null : fmRes.Link
+                ImageLink = fmRes == null ? null : fmRes.Link,
+                freeSeat = statment.FreeSeat.Value,
             };
             var result = new Result();
             result.Response = str;
             return result;
+        }
+
+        private string GetImagelink(Guid carId)
+        {
+            FileStoreLinkResult fmRes = null;
+            try
+            {
+                fmRes = FileStorage.GetFilePhysicalPath(context.Cars.FirstOrDefault(x => x.Id == carId).MainImageId.Value);
+            }
+            catch { return ""; }
+
+            return fmRes.Link;
         }
     }
 }

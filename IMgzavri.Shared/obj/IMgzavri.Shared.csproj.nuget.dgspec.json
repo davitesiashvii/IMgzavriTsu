@@ -1,18 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Projects\\IMgzavri\\IMgzavri.Shared\\IMgzavri.Shared.csproj": {}
+    "D:\\img\\IMgzavriTsu\\IMgzavri.Shared\\IMgzavri.Shared.csproj": {}
   },
   "projects": {
-    "C:\\Projects\\IMgzavri\\IMgzavri.Shared\\IMgzavri.Shared.csproj": {
+    "D:\\img\\IMgzavriTsu\\IMgzavri.Shared\\IMgzavri.Shared.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Projects\\IMgzavri\\IMgzavri.Shared\\IMgzavri.Shared.csproj",
+        "projectUniqueName": "D:\\img\\IMgzavriTsu\\IMgzavri.Shared\\IMgzavri.Shared.csproj",
         "projectName": "IMgzavri.Shared",
-        "projectPath": "C:\\Projects\\IMgzavri\\IMgzavri.Shared\\IMgzavri.Shared.csproj",
+        "projectPath": "D:\\img\\IMgzavriTsu\\IMgzavri.Shared\\IMgzavri.Shared.csproj",
         "packagesPath": "C:\\Users\\davit\\.nuget\\packages\\",
-        "outputPath": "C:\\Projects\\IMgzavri\\IMgzavri.Shared\\obj\\",
+        "outputPath": "D:\\img\\IMgzavriTsu\\IMgzavri.Shared\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
           "C:\\Users\\davit\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"

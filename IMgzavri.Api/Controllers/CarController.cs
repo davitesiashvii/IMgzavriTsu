@@ -37,7 +37,7 @@ namespace IMgzavri.Api.Controllers
 
 
         [HttpGet("get-cars")]
-        public async Task<IActionResult> GetCars(Guid userId, CancellationToken ct)
+        public async Task<IActionResult> GetCars( CancellationToken ct)
         {
             var result = await Mediator.FetchAsync(new GetCarsQuery(), ct);
 

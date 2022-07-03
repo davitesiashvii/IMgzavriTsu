@@ -24,7 +24,7 @@ namespace IMgzavri.Queries.Handlers.Statement
 
         public override async Task<Result> HandleAsync(GetStatmentsQuery query, CancellationToken ct)
         {
-            var statment = context.Statements.AsQueryable();
+            var statment = context.Statements.Where(x=>x.DateFrom > DateTime.Now);
             var vm = new List<StatmentVm>() { };
             if(query.SearchStatment != null)
             {
@@ -53,8 +53,10 @@ namespace IMgzavri.Queries.Handlers.Statement
                 DateTo = x.DateTo,
                 IsComplited = x.IsComplited,
                 CreateUserId = x.CreateUserId,
-                ImageLink = this.GetImagelink(x.CarId)
-            }); ;
+                ImageLink = this.GetImagelink(x.CarId),
+                freeSeat = x.FreeSeat.Value
+
+             });
 
             var result = new Result();
             

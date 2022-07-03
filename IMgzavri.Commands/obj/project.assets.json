@@ -3860,17 +3860,21 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\davit\\.nuget\\packages\\": {}
+    "C:\\Users\\davit\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Projects\\IMgzavri\\IMgzavri.Commands\\IMgzavri.Commands.csproj",
+      "projectUniqueName": "D:\\img\\IMgzavriTsu\\IMgzavri.Commands\\IMgzavri.Commands.csproj",
       "projectName": "IMgzavri.Commands",
-      "projectPath": "C:\\Projects\\IMgzavri\\IMgzavri.Commands\\IMgzavri.Commands.csproj",
+      "projectPath": "D:\\img\\IMgzavriTsu\\IMgzavri.Commands\\IMgzavri.Commands.csproj",
       "packagesPath": "C:\\Users\\davit\\.nuget\\packages\\",
-      "outputPath": "C:\\Projects\\IMgzavri\\IMgzavri.Commands\\obj\\",
+      "outputPath": "D:\\img\\IMgzavriTsu\\IMgzavri.Commands\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
         "C:\\Users\\davit\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -3886,11 +3890,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Projects\\IMgzavri\\IMgzavri.Infrastructure\\IMgzavri.Infrastructure.csproj": {
-              "projectPath": "C:\\Projects\\IMgzavri\\IMgzavri.Infrastructure\\IMgzavri.Infrastructure.csproj"
+            "D:\\img\\IMgzavriTsu\\IMgzavri.Infrastructure\\IMgzavri.Infrastructure.csproj": {
+              "projectPath": "D:\\img\\IMgzavriTsu\\IMgzavri.Infrastructure\\IMgzavri.Infrastructure.csproj"
             },
-            "C:\\Projects\\IMgzavri\\IMgzavri.Shared\\IMgzavri.Shared.csproj": {
-              "projectPath": "C:\\Projects\\IMgzavri\\IMgzavri.Shared\\IMgzavri.Shared.csproj"
+            "D:\\img\\IMgzavriTsu\\IMgzavri.Shared\\IMgzavri.Shared.csproj": {
+              "projectPath": "D:\\img\\IMgzavriTsu\\IMgzavri.Shared\\IMgzavri.Shared.csproj"
             }
           }
         }
