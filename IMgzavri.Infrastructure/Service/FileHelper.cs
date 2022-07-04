@@ -15,7 +15,7 @@ namespace IMgzavri.Infrastructure.Service
             return Path.Combine(path, Path.GetFileNameWithoutExtension(file.Name) + file.Extension);
         }
 
-        public static string BuildPathForFileServer(IMgzavri.Domain.Models.File file, string requestPath = "/Files", string apiUrl = "https://localhost:5011")
+        public static string BuildPathForFileServer(IMgzavri.Domain.Models.File file, string requestPath = "/Files", string apiUrl = "http://localhost:5001")
         {
             var day = file.CreateDate.Day.ToString();
             var month = file.CreateDate.Month.ToString();

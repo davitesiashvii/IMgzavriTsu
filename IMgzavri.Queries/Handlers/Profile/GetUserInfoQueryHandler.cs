@@ -28,7 +28,7 @@ namespace IMgzavri.Queries.Handlers.Profile
             FileStoreLinkResult fmRes = null;
             try
             {
-                fmRes =  FileStorage.GetFilePhysicalPath(user.PhotoId.Value);
+                fmRes =  await FileStorage.GetFilePhysicalPath(user.PhotoId.Value);
             }
             catch { }
            

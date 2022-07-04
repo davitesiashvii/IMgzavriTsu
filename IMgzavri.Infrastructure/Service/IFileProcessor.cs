@@ -8,11 +8,11 @@ namespace IMgzavri.Infrastructure.Service
 {
     public interface IFileProcessor
     {
-        bool SaveToFileSystemAsync(byte[] bytes, string path);
+        Task<bool> SaveToFileSystemAsync(byte[] bytes, string path);
 
-        byte[] ReadFileAsync(string path);
+        Task<byte[]> ReadFileAsync(string path);
 
-        MemoryStream DownloadAsync(string path);
+        Task<MemoryStream> DownloadAsync(string path);
 
         void DeleteFilesIfExist(params string[] paths);
     }

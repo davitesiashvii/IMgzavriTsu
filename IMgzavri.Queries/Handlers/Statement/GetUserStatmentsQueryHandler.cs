@@ -44,7 +44,7 @@ namespace IMgzavri.Queries.Handlers.Statement
                 DateTo = x.DateTo,
                 IsComplited = x.IsComplited,
                 CreateUserId = x.CreateUserId,
-                ImageLink = this.GetImagelink(x.CarId),
+                ImageLink = this.GetImagelink(x.CarId).Result,
                 freeSeat = x.FreeSeat.Value,
             }).ToList();
 
@@ -55,12 +55,12 @@ namespace IMgzavri.Queries.Handlers.Statement
             return result;
         }
 
-        private string GetImagelink(Guid carId)
+        private async Task<string> GetImagelink(Guid carId)
         {
             FileStoreLinkResult fmRes = null;
             try
             {
-                fmRes = FileStorage.GetFilePhysicalPath(context.Cars.FirstOrDefault(x => x.Id == carId).MainImageId.Value);
+                fmRes = await FileStorage.GetFilePhysicalPath(context.Cars.FirstOrDefault(x => x.Id == carId).MainImageId.Value);
             }
             catch { return ""; }
 

@@ -6,11 +6,14 @@ using IMgzavri.Queries;
 using IMgzavri.Shared.Contracts;
 using IMgzavri.Shared.Domain.Models;
 using IMgzavri.Shared.ExternalServices;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.FileProviders;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Serialization;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,6 +22,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.Configure<IRecommendSettings>(builder.Configuration);
 var config = builder.Configuration.Get<IRecommendSettings>();
+
+builder.Services.AddControllers()
+                .AddNewtonsoftJson(o =>
+                {
+                    o.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                    o.SerializerSettings.Converters.Add(new IsoDateTimeConverter());
+                });
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
@@ -74,6 +84,10 @@ builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailS
 builder.Services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.TryAddSingleton<IActionContextAccessor, ActionContextAccessor>();
 
+builder.Services.AddCors();
+
+builder.Services.AddOptions();
+
 builder.Services.AddSingleton<IMailService, MailService>();
 
 builder.Services.AddScoped<IFileStorageService, FileStorageService>();
@@ -95,15 +109,19 @@ if (app.Environment.IsDevelopment())
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "dotnetClaimAuthorization V1");
     });
 }
-//app.UseDeveloperExceptionPage();
+app.UseDeveloperExceptionPage();
 
-//app.UseCors(c => c.AllowAnyOrigin()
-//               .WithOrigins(builder.Configuration.GetSection("GlobalSettings")["Origin"].Split(";"))
-//               .WithMethods("GET", "POST", "PUT", "DELETE")
-//               .AllowCredentials()
-//               .AllowAnyHeader());
+app.UseCors(c => c.AllowAnyOrigin()
+               .WithOrigins(builder.Configuration.GetSection("GlobalSettings")["Origin"].Split(";"))
+               .WithMethods("GET", "POST", "PUT", "DELETE")
+               .AllowCredentials()
+               .AllowAnyHeader());
 
 app.UseAuthentication();
+app.UseForwardedHeaders(new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto | ForwardedHeaders.XForwardedHost
+});
 
 var config1 = builder.Configuration.Get<IRecommendFileStorageSettings>();
 app.UseStaticFiles();
@@ -114,7 +132,7 @@ app.UseFileServer(new FileServerOptions
     RequestPath = new PathString(config1.GlobalSettings.FileServerRequestPath)
 });
 
-//app.UseHsts();
+app.UseHsts();
 app.UseRouting();
 
 app.UseHttpsRedirection();

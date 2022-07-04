@@ -36,8 +36,8 @@ namespace IMgzavri.Queries.Handlers.Car
                 Marck = context.CarMarcks.FirstOrDefault(m => m.Id == car.MarckId).Code,
                 Model = context.CarModels.FirstOrDefault(m => m.Id == car.ModelId).Code,
                 CreatedDate = car.CreateDate,
-                MainImageLink = this.GetImagelink(car.MainImageId.Value),
-                Images = this.GetImagelinks(car.UserId)
+                MainImageLink = await this.GetImagelink(car.MainImageId.Value),
+                Images = await this.GetImagelinks(car.UserId)
             };
 
             var result = new Result();
@@ -46,24 +46,24 @@ namespace IMgzavri.Queries.Handlers.Car
         }
 
 
-        private string GetImagelink(Guid mainImageId)
+        private async Task<string> GetImagelink(Guid mainImageId)
         {
             FileStoreLinkResult fmRes = null;
             try
             {
-                fmRes = FileStorage.GetFilePhysicalPath(mainImageId);
+                fmRes =  await FileStorage.GetFilePhysicalPath(mainImageId);
             }
             catch { return null; }
 
             return fmRes.Link;
         }
 
-        private List<string> GetImagelinks(Guid carId)
+        private async Task<List<string>> GetImagelinks(Guid carId)
         {
             var fmRes = new List<FileStoreLinkResult>();
             try
             {
-                fmRes = FileStorage.GetFilesPhysicalPath(context.CarImages.Where(x => x.Id == carId).Select(z => z.ImageId).ToList());
+                fmRes = await FileStorage.GetFilesPhysicalPath(context.CarImages.Where(x => x.CarId == carId).Select(z => z.ImageId).ToList());
             }
             catch { return null; }
 

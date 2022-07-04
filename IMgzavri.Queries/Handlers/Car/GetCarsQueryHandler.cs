@@ -36,37 +36,37 @@ namespace IMgzavri.Queries.Handlers.Car
                 return result;
             }
 
-            resultCars.AddRange(cars.Select(x => new CarVM
+             resultCars.AddRange(cars.Select( x => new CarVM
             {
                 CarId = x.Id,
                 CreatedDate = x.CreateDate,
                 Marck = context.CarMarcks.FirstOrDefault(m => m.Id == x.MarckId).Code,
                 Model = context.CarModels.FirstOrDefault(m => m.Id == x.ModelId).Code,
-                MainImageLink = this.GetImagelink(x.MainImageId.Value),
-                Images = this.GetImagelinks(x.Id)
+                MainImageLink = this.GetImagelink(x.MainImageId.Value).Result,
+                Images = this.GetImagelinks(x.Id).Result
             }));
             result.Response = resultCars;
             return result;          
         }
 
-        private string GetImagelink(Guid mainImageId)
+        private async Task<string> GetImagelink(Guid mainImageId)
         {
             FileStoreLinkResult fmRes = null;
             try
             {
-                fmRes = FileStorage.GetFilePhysicalPath(mainImageId);
+                fmRes = await FileStorage.GetFilePhysicalPath(mainImageId);
             }
             catch { return null; }
 
             return fmRes.Link;
         }
 
-        private List<string> GetImagelinks(Guid carId)
+        private async Task<List<string>> GetImagelinks(Guid carId)
         {
             var fmRes = new List<FileStoreLinkResult>();
             try
             {
-                fmRes = FileStorage.GetFilesPhysicalPath(context.CarImages.Where(x => x.Id == carId).Select(z=>z.ImageId).ToList());
+                fmRes = await FileStorage.GetFilesPhysicalPath(context.CarImages.Where(x => x.CarId == carId).Select(z=>z.ImageId).ToList());
             }
             catch { return null; }
 

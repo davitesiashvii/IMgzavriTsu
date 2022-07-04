@@ -25,7 +25,7 @@ namespace IMgzavri.Commands.Handlers.Car
             {
                 var fileSavingModel = new FileSavingModel(cmd.MainImage.Name, cmd.MainImage.Extension, cmd.MainImage.ContentType, cmd.MainImage.Size, Convert.FromBase64String(cmd.MainImage.File), userId, Id);
 
-                res = FileStorage.UploadFile(fileSavingModel);
+                res = await FileStorage.UploadFile(fileSavingModel);
             }
             catch { }
 
@@ -40,7 +40,7 @@ namespace IMgzavri.Commands.Handlers.Car
                     {
                         filesModel.Add(new FileSavingModel(x.Name, x.Extension, x.ContentType, x.Size, Convert.FromBase64String(x.File), userId, Id));
                     });
-                    res2 = FileStorage.UploadFiles(filesModel);
+                    res2 = await FileStorage.UploadFiles(filesModel);
                 }
                 catch { }
                 carImages = res2.Select(x => new CarImage()

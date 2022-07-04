@@ -35,7 +35,7 @@ namespace IMgzavri.Queries.Handlers.Statement
             FileStoreLinkResult fmRes = null;
             try
             {
-                fmRes =  FileStorage.GetFilePhysicalPath(context.Cars.FirstOrDefault(x=>x.Id == statment.CarId).MainImageId.Value);
+                fmRes =  await FileStorage.GetFilePhysicalPath(context.Cars.FirstOrDefault(x=>x.Id == statment.CarId).MainImageId.Value);
             }
             catch { }
 
@@ -61,16 +61,6 @@ namespace IMgzavri.Queries.Handlers.Statement
             return result;
         }
 
-        private string GetImagelink(Guid carId)
-        {
-            FileStoreLinkResult fmRes = null;
-            try
-            {
-                fmRes = FileStorage.GetFilePhysicalPath(context.Cars.FirstOrDefault(x => x.Id == carId).MainImageId.Value);
-            }
-            catch { return ""; }
-
-            return fmRes.Link;
-        }
+   
     }
 }

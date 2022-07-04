@@ -10,10 +10,10 @@ namespace IMgzavri.Infrastructure.Service
     public interface IFileStorageService
     {
 
-        FileStoreLinkResult GetFilePhysicalPath(Guid fileId);
-        List<FileStoreLinkResult> GetFilesPhysicalPath(List<Guid> fileIds);
-        FileSavingResult UploadFile(FileSavingModel file);
-        List<FileSavingResult> UploadFiles(List<FileSavingModel> files);
+        Task<FileStoreLinkResult> GetFilePhysicalPath(Guid fileId);
+        Task<List<FileStoreLinkResult>> GetFilesPhysicalPath(List<Guid> fileIds);
+        Task<FileSavingResult> UploadFile(FileSavingModel file);
+        Task<List<FileSavingResult>> UploadFiles(List<FileSavingModel> files);
 
     }
 }

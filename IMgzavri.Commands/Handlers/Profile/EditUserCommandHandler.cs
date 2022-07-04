@@ -28,7 +28,7 @@ namespace IMgzavri.Commands.Handlers.Profile
             {
                 var fileSavingModel = new FileSavingModel(cmd.Photo.Name, cmd.Photo.Extension, cmd.Photo.ContentType, cmd.Photo.Size, Convert.FromBase64String(cmd.Photo.File), cmd.userId, cmd.userId);
 
-                res = FileStorage.UploadFile(fileSavingModel);
+                res = await FileStorage.UploadFile(fileSavingModel);
             }
             catch { }
 

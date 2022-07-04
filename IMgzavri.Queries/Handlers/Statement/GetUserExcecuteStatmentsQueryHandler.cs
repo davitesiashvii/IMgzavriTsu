@@ -39,7 +39,7 @@ namespace IMgzavri.Queries.Handlers.Statement
                 FileStoreLinkResult fmRes = null;
                 try
                 {
-                    fmRes = FileStorage.GetFilePhysicalPath(context.Cars.FirstOrDefault(x => x.Id == statment.CarId).MainImageId.Value);
+                    fmRes = await FileStorage.GetFilePhysicalPath(context.Cars.FirstOrDefault(x => x.Id == statment.CarId).MainImageId.Value);
                 }
                 catch{ }
 
