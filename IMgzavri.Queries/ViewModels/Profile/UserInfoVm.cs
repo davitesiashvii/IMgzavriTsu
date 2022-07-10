@@ -28,5 +28,7 @@ namespace IMgzavri.Queries.ViewModels.Profile
 
         public DateTime CreateDate { get; set; }
 
+        public List<string>? IdNumberImages { get; set; }
+        public List<string>? DrivingLicenseImages { get; set; }
     }
 }

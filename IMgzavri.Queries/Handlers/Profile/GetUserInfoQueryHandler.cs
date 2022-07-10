@@ -21,7 +21,8 @@ namespace IMgzavri.Queries.Handlers.Profile
 
         public override async Task<Result> HandleAsync(GetUserInfoQuery query, CancellationToken ct)
         {
-            var user = await context.Users.FirstOrDefaultAsync(x => x.Id == query.UserId);
+            var curenentUserId = Auth.GetCurrentUserId();
+            var user = await context.Users.FirstOrDefaultAsync(x => x.Id == curenentUserId);
 
             if (user == null)
                 return Result.Error("მომხმარებელი ვერ მოიძებნა");
@@ -45,7 +46,9 @@ namespace IMgzavri.Queries.Handlers.Profile
                 IdNumber = user.IdNumber,
                 NumberLicense = user.NumberLicense,
                 VerifyUser = user.VerifyUser,
-                FileLink = fmRes == null ? null : fmRes.Link
+                FileLink = fmRes == null ? null : fmRes.Link,
+                IdNumberImages = FileStorage.GetProfileImagelinksToCarId(user.Id, 2),
+                DrivingLicenseImages = FileStorage.GetProfileImagelinksToCarId(user.Id, 1)
             };
 
             return result;

@@ -36,8 +36,8 @@ namespace IMgzavri.Queries.Handlers.Car
                 Marck = context.CarMarcks.FirstOrDefault(m => m.Id == car.MarckId).Code,
                 Model = context.CarModels.FirstOrDefault(m => m.Id == car.ModelId).Code,
                 CreatedDate = car.CreateDate,
-                MainImageLink = await this.GetImagelink(car.MainImageId.Value),
-                Images = await this.GetImagelinks(car.UserId)
+                MainImageLink =  FileStorage.GetImagelinkToMainImageId(car.MainImageId.Value),
+                Images =  FileStorage.GetImagelinksToCarId(car.Id)
             };
 
             var result = new Result();
@@ -46,28 +46,28 @@ namespace IMgzavri.Queries.Handlers.Car
         }
 
 
-        private async Task<string> GetImagelink(Guid mainImageId)
-        {
-            FileStoreLinkResult fmRes = null;
-            try
-            {
-                fmRes =  await FileStorage.GetFilePhysicalPath(mainImageId);
-            }
-            catch { return null; }
+        //private async Task<string> GetImagelink(Guid mainImageId)
+        //{
+        //    FileStoreLinkResult fmRes = null;
+        //    try
+        //    {
+        //        fmRes =  await FileStorage.GetFilePhysicalPath(mainImageId);
+        //    }
+        //    catch { return null; }
 
-            return fmRes.Link;
-        }
+        //    return fmRes.Link;
+        //}
 
-        private async Task<List<string>> GetImagelinks(Guid carId)
-        {
-            var fmRes = new List<FileStoreLinkResult>();
-            try
-            {
-                fmRes = await FileStorage.GetFilesPhysicalPath(context.CarImages.Where(x => x.CarId == carId).Select(z => z.ImageId).ToList());
-            }
-            catch { return null; }
+        //private async Task<List<string>> GetImagelinks(Guid carId)
+        //{
+        //    var fmRes = new List<FileStoreLinkResult>();
+        //    try
+        //    {
+        //        fmRes = await FileStorage.GetFilesPhysicalPath(context.CarImages.Where(x => x.CarId == carId).Select(z => z.ImageId).ToList());
+        //    }
+        //    catch { return null; }
 
-            return fmRes.Select(x => x.Link).ToList();
-        }
+        //    return fmRes.Select(x => x.Link).ToList();
+        //}
     }
 }

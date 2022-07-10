@@ -18,10 +18,10 @@ namespace IMgzavri.Api.Controllers
         {
         }
 
-        [HttpGet("get-user-info/{userId}")]
-        public async Task<IActionResult> GetUserInfo(Guid userId, CancellationToken ct)
+        [HttpGet("get-user-info")]
+        public async Task<IActionResult> GetUserInfo(CancellationToken ct)
         {
-            var result = await Mediator.FetchAsync(new GetUserInfoQuery(userId), ct);
+            var result = await Mediator.FetchAsync(new GetUserInfoQuery(), ct);
 
             return Ok(result);
         }

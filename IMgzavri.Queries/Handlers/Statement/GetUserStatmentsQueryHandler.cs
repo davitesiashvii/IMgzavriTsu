@@ -25,12 +25,17 @@ namespace IMgzavri.Queries.Handlers.Statement
         {
             var userId = Auth.GetCurrentUserId();
 
-            var statment = context.Statements.Where(x => x.CreateUserId == userId && x.DateFrom > DateTime.Now).OrderByDescending(x=>x.CreatedDate);
+            var statments = context.Statements.Where(x => x.CreateUserId == userId && x.DateFrom > DateTime.Now).OrderByDescending(x=>x.CreatedDate);
 
-            if (!statment.Any())
+            if (!statments.Any())
                 return Result.Error("დაფიქსირდა სისტემური შეცდომა");
 
-            var res = statment.Select(x => new StatmentVm()
+            foreach(var statment in statments)
+            {
+                
+            }
+
+            var res = statments.Select(x => new StatmentVm()
             {
                 Id = x.Id,
                 CarId = x.CarId,
@@ -44,7 +49,7 @@ namespace IMgzavri.Queries.Handlers.Statement
                 DateTo = x.DateTo,
                 IsComplited = x.IsComplited,
                 CreateUserId = x.CreateUserId,
-                ImageLink = this.GetImagelink(x.CarId).Result,
+                ImageLink = FileStorage.GetImagelinkToCarId(x.CarId),
                 freeSeat = x.FreeSeat.Value,
             }).ToList();
 
@@ -55,16 +60,5 @@ namespace IMgzavri.Queries.Handlers.Statement
             return result;
         }
 
-        private async Task<string> GetImagelink(Guid carId)
-        {
-            FileStoreLinkResult fmRes = null;
-            try
-            {
-                fmRes = await FileStorage.GetFilePhysicalPath(context.Cars.FirstOrDefault(x => x.Id == carId).MainImageId.Value);
-            }
-            catch { return ""; }
-
-            return fmRes.Link;
-        }
     }
 }

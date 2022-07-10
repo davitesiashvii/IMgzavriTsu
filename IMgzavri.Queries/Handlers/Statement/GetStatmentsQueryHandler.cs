@@ -39,6 +39,9 @@ namespace IMgzavri.Queries.Handlers.Statement
                 statment = this.StatmentSort(statment, query.SortStatment);
             else statment.OrderByDescending(x => x.CreatedDate);
 
+            if(query.StatmentFilter != null)
+                statment = this.Filter(statment, query.StatmentFilter);
+
             var res = statment.Select(x => new StatmentVm()
             {
                 Id = x.Id,
@@ -53,7 +56,7 @@ namespace IMgzavri.Queries.Handlers.Statement
                 DateTo = x.DateTo,
                 IsComplited = x.IsComplited,
                 CreateUserId = x.CreateUserId,
-                ImageLink =  this.GetImagelink(x.CarId).Result,
+                ImageLink =  FileStorage.GetImagelinkToCarId(x.CarId),
                 freeSeat = x.FreeSeat.Value
 
              });
@@ -65,17 +68,6 @@ namespace IMgzavri.Queries.Handlers.Statement
             return result;
         }
 
-        private async Task<string> GetImagelink(Guid carId)
-        {
-            FileStoreLinkResult fmRes = null;
-            try
-            {
-                fmRes = await FileStorage.GetFilePhysicalPath(context.Cars.FirstOrDefault(x => x.Id == carId).MainImageId.Value);
-            }
-            catch { return ""; }
-
-            return fmRes.Link;
-        }
 
         private IQueryable<IMgzavri.Domain.Models.Statement> StatmentSort(IQueryable<IMgzavri.Domain.Models.Statement> query, SortStatment sort)
         {

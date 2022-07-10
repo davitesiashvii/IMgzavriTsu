@@ -41,6 +41,8 @@ namespace IMgzavri.Infrastructure.Db
 
         public DbSet<Client> Clients { get; set; }
 
+        public DbSet<ProfileImages> ProfileImages { get; set; }
+
        
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -68,6 +70,11 @@ namespace IMgzavri.Infrastructure.Db
                 .HasOne(x => x.CreateUser)
                 .WithMany(x => x.Statements)
                 .HasForeignKey(x => x.CreateUserId);
+
+            modelBuilder.Entity<ProfileImages>()
+                .HasOne(x => x.User)
+                .WithMany(x => x.ProfileImages)
+                .HasForeignKey(x => x.UserId);
 
             //modelBuilder.Entity<Client>()
             //    .HasOne(x => x.User)

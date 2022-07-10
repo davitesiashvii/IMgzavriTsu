@@ -58,13 +58,13 @@ namespace IMgzavri.Api.Controllers
             return Ok(result);
         }
 
-        //[HttpPost("excecute-statment")]
-        //public async Task<IActionResult> ExcecuteStatment([FromBody] ExcecuteStatmentCommand cmd, CancellationToken ct)
-        //{
-        //    var result = await Mediator.SendAsync(cmd, ct);
+        [HttpPost("excecute-statment")]
+        public async Task<IActionResult> ExcecuteStatment([FromBody] ExcecuteStatmentCommand cmd, CancellationToken ct)
+        {
+            var result = await Mediator.SendAsync(cmd, ct);
 
-        //    return Ok(result);
-        //}
+            return Ok(result);
+        }
 
         [HttpGet("get-client-statments")]
         public async Task<IActionResult> GetUserExcecuteStatments(CancellationToken ct)

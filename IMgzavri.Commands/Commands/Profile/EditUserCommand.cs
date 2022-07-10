@@ -8,14 +8,15 @@ using System.Threading.Tasks;
 namespace IMgzavri.Commands.Commands.Profile
 {
     public record EditUserCommand(
-        Guid userId,
         string Email,
         string FirstName,
         string LastName,
         string MobileNumber,
         string IdNumber,
         string NumberLicense,
-        SaveFileModel Photo
+        SaveFileModel Photo,
+        List<SaveFileModel> IdNumberImages,
+        List<SaveFileModel> DrivingLicenseImages
         ) : Command;
     
 }

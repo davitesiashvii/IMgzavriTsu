@@ -37,41 +37,41 @@ namespace IMgzavri.Queries.Handlers.Car
             }
 
              resultCars.AddRange(cars.Select( x => new CarVM
-            {
+             {
                 CarId = x.Id,
                 CreatedDate = x.CreateDate,
                 Marck = context.CarMarcks.FirstOrDefault(m => m.Id == x.MarckId).Code,
                 Model = context.CarModels.FirstOrDefault(m => m.Id == x.ModelId).Code,
-                MainImageLink = this.GetImagelink(x.MainImageId.Value).Result,
-                Images = this.GetImagelinks(x.Id).Result
-            }));
+                MainImageLink = FileStorage.GetImagelinkToMainImageId(x.MainImageId.Value),
+                Images = FileStorage.GetImagelinksToCarId(x.Id)
+             }));
             result.Response = resultCars;
             return result;          
         }
 
-        private async Task<string> GetImagelink(Guid mainImageId)
-        {
-            FileStoreLinkResult fmRes = null;
-            try
-            {
-                fmRes = await FileStorage.GetFilePhysicalPath(mainImageId);
-            }
-            catch { return null; }
+        //private async Task<string> GetImagelink(Guid mainImageId)
+        //{
+        //    FileStoreLinkResult fmRes = null;
+        //    try
+        //    {
+        //        fmRes = await FileStorage.GetFilePhysicalPath(mainImageId);
+        //    }
+        //    catch { return null; }
 
-            return fmRes.Link;
-        }
+        //    return fmRes.Link;
+        //}
 
-        private async Task<List<string>> GetImagelinks(Guid carId)
-        {
-            var fmRes = new List<FileStoreLinkResult>();
-            try
-            {
-                fmRes = await FileStorage.GetFilesPhysicalPath(context.CarImages.Where(x => x.CarId == carId).Select(z=>z.ImageId).ToList());
-            }
-            catch { return null; }
+        //private async Task<List<string>> GetImagelinks(Guid carId)
+        //{
+        //    var fmRes = new List<FileStoreLinkResult>();
+        //    try
+        //    {
+        //        fmRes = await FileStorage.GetFilesPhysicalPath(context.CarImages.Where(x => x.CarId == carId).Select(z=>z.ImageId).ToList());
+        //    }
+        //    catch { return null; }
 
-            return fmRes.Select(x=>x.Link).ToList();
-        }
+        //    return fmRes.Select(x=>x.Link).ToList();
+        //}
 
 
 

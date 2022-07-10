@@ -161,6 +161,58 @@ namespace IMgzavri.Infrastructure.Service
             return result;
         }
 
+        public string GetImagelinkToMainImageId(Guid mainImageId)
+        {
+            FileStoreLinkResult fmRes = null;
+            try
+            {
+                fmRes = this.GetFilePhysicalPath(mainImageId).GetAwaiter().GetResult();
+            }
+            catch { return null; }
+
+            return fmRes.Link;
+        }
+
+        public List<string> GetImagelinksToCarId(Guid carId)
+        {
+            var fmRes = new List<FileStoreLinkResult>();
+            try
+            {
+                fmRes = this.GetFilesPhysicalPath(context.CarImages.Where(x => x.CarId == carId).Select(z => z.ImageId).ToList()).GetAwaiter().GetResult();
+            }
+            catch { return null; }
+
+            return fmRes.Select(x => x.Link).ToList();
+        }
+
+        public string GetImagelinkToCarId(Guid carId)
+        {
+            FileStoreLinkResult fmRes = null;
+            try
+            {
+                fmRes = this.GetFilePhysicalPath(context.Cars.FirstOrDefault(x => x.Id == carId).MainImageId.Value).GetAwaiter().GetResult();
+            }
+            catch { return ""; }
+
+            return fmRes.Link;
+        }
+
+        public List<string> GetProfileImagelinksToCarId(Guid userId, int type)
+        {
+            var fmRes = new List<FileStoreLinkResult>();
+            try
+            {
+                fmRes = this.GetFilesPhysicalPath(context.ProfileImages.Where(x => x.UserId == userId && x.Type == type).Select(z => z.ImageId).ToList()).GetAwaiter().GetResult();
+            }
+            catch { return null; }
+
+            return fmRes.Select(x => x.Link).ToList();
+        }
+
+
+
+
+
 
 
     }

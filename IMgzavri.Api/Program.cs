@@ -52,7 +52,7 @@ builder.Services.AddMediator(o =>
 
 builder.Services.AddSwaggerGen(x =>
 {
-    x.SwaggerDoc("v1", new OpenApiInfo { Title = "Tweetbook API", Version = "v1" });
+    x.SwaggerDoc("v1", new OpenApiInfo { Title = "IMgzavri API", Version = "v1" });
 
     //x.ExampleFilters();
 

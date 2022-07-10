@@ -35,6 +35,7 @@ namespace IMgzavri.Domain.Models
         public ICollection<Car> Cars { get; set; }
         public ICollection<Statement> Statements { get; set; }
         public ICollection<Client> Clients { get; set; }
+        public ICollection<ProfileImages> ProfileImages { get; set; }
 
     }
 

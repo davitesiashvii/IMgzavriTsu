@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace IMgzavri.Queries.Queries.Profile
 {
-     public record GetUserInfoQuery(Guid UserId): Query;
+     public record GetUserInfoQuery(): Query;
 
      
 }
