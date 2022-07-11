@@ -31,6 +31,9 @@ namespace IMgzavri.Infrastructure.Migrations
                     b.Property<DateTime>("CreateDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool?>("IsVertify")
+                        .HasColumnType("bit");
+
                     b.Property<Guid?>("MainImageId")
                         .HasColumnType("uniqueidentifier");
 
@@ -61,6 +64,9 @@ namespace IMgzavri.Infrastructure.Migrations
 
                     b.Property<Guid>("ImageId")
                         .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool?>("IsTechnicalInspection")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 

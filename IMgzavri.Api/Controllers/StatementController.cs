@@ -82,5 +82,13 @@ namespace IMgzavri.Api.Controllers
             return Ok(result);
         }
 
+        [HttpPost("delete-statment")]
+        public async Task<IActionResult> ExcecuteStatment([FromBody] DeleteStatmentCommand cmd, CancellationToken ct)
+        {
+            var result = await Mediator.SendAsync(cmd, ct);
+
+            return Ok(result);
+        }
+
     }
 }

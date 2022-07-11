@@ -12,6 +12,8 @@ namespace IMgzavri.Domain.Models
 
         public Guid ImageId { get; set; }
 
+        public bool? IsTechnicalInspection { get; set; }
+
         public Guid CarId { get; set; }
         public Car Car { get; set; }
     }

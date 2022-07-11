@@ -28,9 +28,9 @@ namespace IMgzavri.Commands.Handlers.Car
                 res = await FileStorage.UploadFile(fileSavingModel);
             }
             catch { }
-
-            var carImages = new List<CarImage>();
-            if (cmd.Images.Any())
+            var isVertify = false;
+            var carImages = new List<CarImage>() { };
+            if (cmd.Images != null)
             {
                 var filesModel = new List<FileSavingModel>() { };
                 var res2 = new List<FileSavingResult>();
@@ -43,11 +43,34 @@ namespace IMgzavri.Commands.Handlers.Car
                     res2 = await FileStorage.UploadFiles(filesModel);
                 }
                 catch { }
-                carImages = res2.Select(x => new CarImage()
+                carImages.AddRange(res2.Select(x => new CarImage()
                 {
                     Id = Guid.NewGuid(),
                     ImageId = x.FileId,
-                }).ToList();
+                    IsTechnicalInspection = false
+                }).ToList());
+            }
+
+            if (cmd.IsTechnicalInspection != null)
+            {
+                var filesModel = new List<FileSavingModel>() { };
+                var res2 = new List<FileSavingResult>();
+                try
+                {
+                    cmd.Images.ForEach(x =>
+                    {
+                        filesModel.Add(new FileSavingModel(x.Name, x.Extension, x.ContentType, x.Size, Convert.FromBase64String(x.File), userId, Id));
+                    });
+                    res2 = await FileStorage.UploadFiles(filesModel);
+                }
+                catch { }
+                carImages.AddRange(res2.Select(x => new CarImage()
+                {
+                    Id = Guid.NewGuid(),
+                    ImageId = x.FileId,
+                    IsTechnicalInspection = true
+                }).ToList());
+                isVertify = true;
             }
 
             var car = new IMgzavri.Domain.Models.Car()
@@ -57,8 +80,9 @@ namespace IMgzavri.Commands.Handlers.Car
                 CreateDate = DateTime.Now,
                 MarckId = cmd.MarckId,
                 ModelId = cmd.ModelId,
-                MainImageId = res.FileId,
-                CarImages = carImages
+                MainImageId = res == null ? null : res.FileId,
+                CarImages = carImages,
+                IsVertify = isVertify
             };
             await context.Cars.AddAsync(car);
             await context.SaveChangesAsync();

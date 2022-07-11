@@ -25,7 +25,7 @@ namespace IMgzavri.Queries.Handlers.Profile
             var user = await context.Users.FirstOrDefaultAsync(x => x.Id == curenentUserId);
 
             if (user == null)
-                return Result.Error("მომხმარებელი ვერ მოიძებნა");
+                return Result.Error("user not found");
             FileStoreLinkResult fmRes = null;
             try
             {

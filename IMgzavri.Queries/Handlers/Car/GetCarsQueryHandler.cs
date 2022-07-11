@@ -43,7 +43,8 @@ namespace IMgzavri.Queries.Handlers.Car
                 Marck = context.CarMarcks.FirstOrDefault(m => m.Id == x.MarckId).Code,
                 Model = context.CarModels.FirstOrDefault(m => m.Id == x.ModelId).Code,
                 MainImageLink = FileStorage.GetImagelinkToMainImageId(x.MainImageId.Value),
-                Images = FileStorage.GetImagelinksToCarId(x.Id)
+                Images = FileStorage.GetImagelinksToCarId(x.Id),
+                IsVertify = x.IsVertify.Value,
              }));
             result.Response = resultCars;
             return result;          

@@ -25,10 +25,6 @@ namespace IMgzavri.Commands.Handlers.Profile
             if (user == null)
                 return Result.Error("ოპერაციის შესრტულების დროს მოხდა შეცდომა");
 
-            if(!cmd.IdNumberImages.Any() || !cmd.IdNumberImages.Any())
-            {
-                return Result.Error("ოპერაციის შესრტულების დროს მოხდა შეცდომა");
-            }
             
             FileSavingResult res = null;         
 
@@ -42,7 +38,7 @@ namespace IMgzavri.Commands.Handlers.Profile
 
             var profileLicenseImages = new List<ProfileImages>();
             var profileIdNumberImages = new List<ProfileImages>();
-            if (cmd.DrivingLicenseImages.Any() && cmd.IdNumberImages.Any())
+            if (cmd.DrivingLicenseImages != null && cmd.IdNumberImages != null)
             {
                 var res2 = new List<FileSavingResult>();
                 res2 = await this.CreateImages(cmd.DrivingLicenseImages, user.Id);
@@ -70,8 +66,11 @@ namespace IMgzavri.Commands.Handlers.Profile
 
             context.ProfileImages.AddRange(profileImages);
 
-            user.IdNumber = cmd.IdNumber;
-            user.NumberLicense = cmd.NumberLicense;
+            user.FirstName = String.IsNullOrEmpty(cmd.FirstName) ? user.FirstName : cmd.FirstName;
+            user.IdNumber = String.IsNullOrEmpty(cmd.IdNumber) ? user.IdNumber : cmd.IdNumber;
+            user.NumberLicense = String.IsNullOrEmpty(cmd.NumberLicense) ? user.NumberLicense : cmd.NumberLicense;
+            user.MobileNumber = String.IsNullOrEmpty(cmd.MobileNumber) ? user.MobileNumber : cmd.MobileNumber;
+            user.LastName = String.IsNullOrEmpty(cmd.LastName) ? user.LastName : cmd.LastName;
             user.VerifyUser = true;
             user.PhotoId = res == null ? null : res.FileId;
 

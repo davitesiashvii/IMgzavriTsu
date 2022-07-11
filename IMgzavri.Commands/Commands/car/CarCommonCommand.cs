@@ -11,7 +11,8 @@ namespace IMgzavri.Commands.Commands.car
         int MarckId,
         int ModelId,
         SaveFileModel MainImage,
-        List<SaveFileModel> Images
+        List<SaveFileModel> Images,
+        List<SaveFileModel> IsTechnicalInspection
         ) : Command;
 
     public record UpdateCarCommand

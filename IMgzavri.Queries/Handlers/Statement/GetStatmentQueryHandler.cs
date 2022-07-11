@@ -29,8 +29,15 @@ namespace IMgzavri.Queries.Handlers.Statement
 
             var statment = await context.Statements.FirstOrDefaultAsync(x=>x.CreateUserId == userId && x.Id == query.StatmentId);
 
+
             if (statment == null)
                 return Result.Error("დაფიქსირდა სისტემური შეცდომა");
+
+            var carVertify = context.Cars.FirstOrDefault(x => x.Id == statment.CarId).IsVertify;
+            if(carVertify == null || carVertify == false)
+            {
+                return Result.Error("Statment car is not vertifed");
+            }
 
             FileStoreLinkResult fmRes = null;
             try
@@ -45,6 +52,7 @@ namespace IMgzavri.Queries.Handlers.Statement
                 CarId = statment.CarId,
                 Description = statment.Description,
                 CreateDate = statment.CreatedDate,
+                MobileNumber = context.Users.FirstOrDefault(x=>x.Id == statment.CreateUserId).MobileNumber,
                 Seat = statment.Seat,
                 Price = statment.Price,
                 RoutFrom = context.Cities.FirstOrDefault(x=>x.Id == statment.RoutFromId).Name,

@@ -18,6 +18,8 @@ namespace IMgzavri.Domain.Models
 
         public DateTime CreateDate { get; set; }
 
+        public bool? IsVertify { get; set; }
+
 
 
         public Guid UserId { get; set; }

@@ -31,7 +31,7 @@ namespace IMgzavri.Queries.Handlers.Statement
             foreach(var item in client)
             {
 
-                var statment = await context.Statements.FirstOrDefaultAsync(x => x.Id == item.StatmentId && x.DateFrom > DateTime.Now);
+                var statment = await context.Statements.FirstOrDefaultAsync(x => x.Id == item.StatmentId && x.DateFrom > DateTime.Now && context.Cars.FirstOrDefault(c => c.Id == x.CarId).IsVertify.Value == true);
 
                 if (statment == null)
                     continue;
@@ -48,6 +48,7 @@ namespace IMgzavri.Queries.Handlers.Statement
                     Id = statment.Id,
                     CarId = statment.CarId,
                     Description = statment.Description,
+                    MobileNumber = context.Users.FirstOrDefault(x => x.Id == statment.CreateUserId).MobileNumber,
                     CreateDate = statment.CreatedDate,
                     Seat = statment.Seat,
                     Price = statment.Price,

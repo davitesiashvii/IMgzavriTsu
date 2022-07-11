@@ -12,7 +12,9 @@ namespace IMgzavri.Queries.ViewModels.Car
         public string Marck { get; set; }
         public string Model { get; set; }
         public DateTime CreatedDate { get; set; }
+        public bool IsVertify { get; set; }
         public string MainImageLink { get; set; }
         public List<string> Images { get; set; }
+        
     }
 }

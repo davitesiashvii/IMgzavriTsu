@@ -13,6 +13,7 @@ namespace IMgzavri.Queries.ViewModels.Statment
         public string? Description { get; set; }
         public DateTime CreateDate { get; set; }
         public int Seat { get; set; }
+        public string MobileNumber { get; set; }
         public Double Price { get; set; }
         public string RoutFrom { get; set; }
         public string RouteTo { get; set; }

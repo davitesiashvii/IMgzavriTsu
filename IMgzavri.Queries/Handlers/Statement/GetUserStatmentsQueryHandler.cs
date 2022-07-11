@@ -25,7 +25,7 @@ namespace IMgzavri.Queries.Handlers.Statement
         {
             var userId = Auth.GetCurrentUserId();
 
-            var statments = context.Statements.Where(x => x.CreateUserId == userId && x.DateFrom > DateTime.Now).OrderByDescending(x=>x.CreatedDate);
+            var statments = context.Statements.Where(x => x.CreateUserId == userId && x.DateFrom > DateTime.Now && context.Cars.FirstOrDefault(c=>c.Id == x.CarId).IsVertify.Value == true).OrderByDescending(x=>x.CreatedDate);
 
             if (!statments.Any())
                 return Result.Error("დაფიქსირდა სისტემური შეცდომა");
@@ -40,6 +40,7 @@ namespace IMgzavri.Queries.Handlers.Statement
                 Id = x.Id,
                 CarId = x.CarId,
                 Description = x.Description,
+                MobileNumber = context.Users.FirstOrDefault(u=>u.Id == x.CreateUserId).MobileNumber,
                 CreateDate = x.CreatedDate,
                 Seat = x.Seat,
                 Price = x.Price,

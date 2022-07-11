@@ -24,7 +24,7 @@ namespace IMgzavri.Queries.Handlers.Statement
 
         public override async Task<Result> HandleAsync(GetStatmentsQuery query, CancellationToken ct)
         {
-            var statment = context.Statements.Where(x=>x.DateFrom > DateTime.Now);
+            var statment = context.Statements.Where(x => x.DateFrom > DateTime.Now && context.Cars.FirstOrDefault(c => c.Id == x.CarId).IsVertify.Value == true);
             var vm = new List<StatmentVm>() { };
             if(query.SearchStatment != null)
             {
@@ -50,6 +50,7 @@ namespace IMgzavri.Queries.Handlers.Statement
                 CreateDate = x.CreatedDate,
                 Seat = x.Seat,
                 Price = x.Price,
+                MobileNumber = context.Users.FirstOrDefault(u => u.Id == x.CreateUserId).MobileNumber,
                 RoutFrom = context.Cities.FirstOrDefault(z => z.Id == x.RoutFromId).Name,
                 RouteTo = context.Cities.FirstOrDefault(z => z.Id == x.RouteToId).Name,
                 DateFrom = x.DateFrom,

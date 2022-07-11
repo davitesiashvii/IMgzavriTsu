@@ -24,7 +24,10 @@ namespace IMgzavri.Commands.Handlers.Car
             var car = await context.Cars.FirstOrDefaultAsync(x=>x.Id == cmd.CarId);
 
             if (car == null)
-                return Result.Error("");
+                return Result.Error("car not found");
+            var statment = context.Statements.Where(x => x.CarId == car.Id).ToList();
+            if (statment.Any())
+                return Result.Error("The car is used in the statment and cannot be deleted");
 
             context.Cars.Remove(car);
             await context.SaveChangesAsync();
