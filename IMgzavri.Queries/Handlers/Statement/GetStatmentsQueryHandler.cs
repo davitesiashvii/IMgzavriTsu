@@ -24,7 +24,7 @@ namespace IMgzavri.Queries.Handlers.Statement
 
         public override async Task<Result> HandleAsync(GetStatmentsQuery query, CancellationToken ct)
         {
-            var statment = context.Statements.Where(x => x.DateFrom > DateTime.Now && context.Cars.FirstOrDefault(c => c.Id == x.CarId).IsVertify.Value == true);
+            var statment = context.Statements.Where(x => x.DateFrom > DateTime.Now && context.Cars.FirstOrDefault(c => c.Id == x.CarId).IsVertify == true);
             var vm = new List<StatmentVm>() { };
             if(query.SearchStatment != null)
             {

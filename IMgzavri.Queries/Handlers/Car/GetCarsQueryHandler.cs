@@ -44,7 +44,7 @@ namespace IMgzavri.Queries.Handlers.Car
                 Model = context.CarModels.FirstOrDefault(m => m.Id == x.ModelId).Code,
                 MainImageLink = FileStorage.GetImagelinkToMainImageId(x.MainImageId.Value),
                 Images = FileStorage.GetImagelinksToCarId(x.Id),
-                IsVertify = x.IsVertify.Value,
+                IsVertify = x.IsVertify,
              }));
             result.Response = resultCars;
             return result;          

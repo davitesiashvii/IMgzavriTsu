@@ -38,7 +38,7 @@ namespace IMgzavri.Queries.Handlers.Car
                 CreatedDate = car.CreateDate,
                 MainImageLink =  FileStorage.GetImagelinkToMainImageId(car.MainImageId.Value),
                 Images =  FileStorage.GetImagelinksToCarId(car.Id),
-                IsVertify = car.IsVertify.Value
+                IsVertify = car.IsVertify
             };
 
             var result = new Result();

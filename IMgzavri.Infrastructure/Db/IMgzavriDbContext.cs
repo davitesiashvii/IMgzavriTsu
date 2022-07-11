@@ -86,6 +86,9 @@ namespace IMgzavri.Infrastructure.Db
             //    .WithMany(x => x.Clients)
             //    .HasForeignKey(x => x.StatmentId);
 
+            //modelBuilder.Entity<Car>()
+            //    .Property(x => x.IsVertify)
+            //    .HasDefaultValue(false);
                  
 
         }

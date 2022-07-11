@@ -31,7 +31,7 @@ namespace IMgzavri.Queries.Handlers.Statement
             foreach(var item in client)
             {
 
-                var statment = await context.Statements.FirstOrDefaultAsync(x => x.Id == item.StatmentId && x.DateFrom > DateTime.Now && context.Cars.FirstOrDefault(c => c.Id == x.CarId).IsVertify.Value == true);
+                var statment = await context.Statements.FirstOrDefaultAsync(x => x.Id == item.StatmentId && x.DateFrom > DateTime.Now && context.Cars.FirstOrDefault(c => c.Id == x.CarId).IsVertify == true);
 
                 if (statment == null)
                     continue;
