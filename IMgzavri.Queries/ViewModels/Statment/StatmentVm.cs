@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IMgzavri.Queries.ViewModels.Car;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ namespace IMgzavri.Queries.ViewModels.Statment
     {
         public Guid Id { get; set; }
         public Guid CarId { get; set; }
+        public CarVM Car { get; set; }
         public string? Description { get; set; }
         public DateTime CreateDate { get; set; }
         public int Seat { get; set; }
@@ -21,6 +23,7 @@ namespace IMgzavri.Queries.ViewModels.Statment
         public DateTime DateTo { get; set; }
         public bool? IsComplited { get; set; }
         public int freeSeat { get; set; }
+        public bool isValid { get; set; }
 
         public Guid CreateUserId { get; set; }
 

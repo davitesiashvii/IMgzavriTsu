@@ -3,6 +3,7 @@ using IMgzavri.Infrastructure;
 using IMgzavri.Infrastructure.Db;
 using IMgzavri.Infrastructure.Service;
 using IMgzavri.Queries.Queries.Statement;
+using IMgzavri.Queries.ViewModels.Car;
 using IMgzavri.Queries.ViewModels.Statment;
 using IMgzavri.Shared.Domain.Models;
 using Microsoft.EntityFrameworkCore;
@@ -31,7 +32,7 @@ namespace IMgzavri.Queries.Handlers.Statement
             foreach(var item in client)
             {
 
-                var statment = await context.Statements.FirstOrDefaultAsync(x => x.Id == item.StatmentId && x.DateFrom > DateTime.Now && context.Cars.FirstOrDefault(c => c.Id == x.CarId).IsVertify == true);
+                var statment = await context.Statements.FirstOrDefaultAsync(x => x.Id == item.StatmentId && x.DateTo > DateTime.Now);
 
                 if (statment == null)
                     continue;
@@ -60,6 +61,7 @@ namespace IMgzavri.Queries.Handlers.Statement
                     CreateUserId = userId,
                     ImageLink = fmRes == null ? null : fmRes.Link,
                     freeSeat = statment.FreeSeat.Value,
+                    isValid = context.Cars.FirstOrDefault(c => c.Id == statment.CarId).IsVertify
                 };
                 res.Add(str);
             }
@@ -71,4 +73,6 @@ namespace IMgzavri.Queries.Handlers.Statement
             return result;
         }
     }
+
+    
 }

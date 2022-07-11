@@ -60,7 +60,7 @@ namespace IMgzavri.Queries.Handlers.Statement
                 ImageLink =  FileStorage.GetImagelinkToCarId(x.CarId),
                 freeSeat = x.FreeSeat.Value
 
-             });
+            });
 
             var result = new Result();
             

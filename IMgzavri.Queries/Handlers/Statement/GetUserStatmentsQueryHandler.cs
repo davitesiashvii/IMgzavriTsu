@@ -3,6 +3,7 @@ using IMgzavri.Infrastructure;
 using IMgzavri.Infrastructure.Db;
 using IMgzavri.Infrastructure.Service;
 using IMgzavri.Queries.Queries.Statement;
+using IMgzavri.Queries.ViewModels.Car;
 using IMgzavri.Queries.ViewModels.Statment;
 using IMgzavri.Shared.Domain.Models;
 using IMgzavri.Shared.ExternalServices;
@@ -52,6 +53,7 @@ namespace IMgzavri.Queries.Handlers.Statement
                 CreateUserId = x.CreateUserId,
                 ImageLink = FileStorage.GetImagelinkToCarId(x.CarId),
                 freeSeat = x.FreeSeat.Value,
+                isValid = context.Cars.FirstOrDefault(c => c.Id == x.CarId).IsVertify
             }).ToList();
 
             var result = new Result();
@@ -60,6 +62,8 @@ namespace IMgzavri.Queries.Handlers.Statement
 
             return result;
         }
+
+    
 
     }
 }

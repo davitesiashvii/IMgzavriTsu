@@ -5,6 +5,7 @@ using IMgzavri.Infrastructure.Service;
 using IMgzavri.Queries.Extension;
 using IMgzavri.Queries.Queries.Statement;
 using IMgzavri.Queries.ViewModels;
+using IMgzavri.Queries.ViewModels.Car;
 using IMgzavri.Queries.ViewModels.Statment;
 using IMgzavri.Shared.Contracts;
 using IMgzavri.Shared.Domain.Models;
@@ -50,6 +51,7 @@ namespace IMgzavri.Queries.Handlers.Statement
             {
                 Id = statment.Id,
                 CarId = statment.CarId,
+                Car = this.GetCar(statment.CarId),
                 Description = statment.Description,
                 CreateDate = statment.CreatedDate,
                 MobileNumber = context.Users.FirstOrDefault(x=>x.Id == statment.CreateUserId).MobileNumber,
@@ -63,11 +65,31 @@ namespace IMgzavri.Queries.Handlers.Statement
                 CreateUserId = userId,
                 ImageLink = fmRes == null ? null : fmRes.Link,
                 freeSeat = statment.FreeSeat.Value,
+                isValid = context.Cars.FirstOrDefault(c=>c.Id == statment.CarId).IsVertify
             };
             var result = new Result();
             result.Response = str;
             return result;
         }
+
+        private CarVM GetCar(Guid carId)
+        {
+            var car = context.Cars.FirstOrDefault(x => x.Id == carId);
+
+            var carVm = new CarVM()
+            {
+                CarId = car.Id,
+                Marck = context.CarMarcks.FirstOrDefault(m => m.Id == car.MarckId).Code,
+                Model = context.CarModels.FirstOrDefault(m => m.Id == car.ModelId).Code,
+                CreatedDate = car.CreateDate,
+                MainImageLink = FileStorage.GetImagelinkToMainImageId(car.MainImageId.Value),
+                Images = FileStorage.GetImagelinksToCarId(car.Id),
+                IsVertify = car.IsVertify
+            };
+            return carVm;
+        }
+
+        
 
    
     }

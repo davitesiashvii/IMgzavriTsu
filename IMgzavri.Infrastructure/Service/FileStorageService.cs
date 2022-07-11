@@ -178,7 +178,7 @@ namespace IMgzavri.Infrastructure.Service
             var fmRes = new List<FileStoreLinkResult>();
             try
             {
-                fmRes = this.GetFilesPhysicalPath(context.CarImages.Where(x => x.CarId == carId).Select(z => z.ImageId).ToList()).GetAwaiter().GetResult();
+                fmRes = this.GetFilesPhysicalPath(context.CarImages.Where(x => x.CarId == carId && x.IsTechnicalInspection == false).Select(z => z.ImageId).ToList()).GetAwaiter().GetResult();
             }
             catch { return null; }
 

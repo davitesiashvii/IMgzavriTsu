@@ -57,7 +57,7 @@ namespace IMgzavri.Commands.Handlers.Car
                 var res2 = new List<FileSavingResult>();
                 try
                 {
-                    cmd.Images.ForEach(x =>
+                    cmd.IsTechnicalInspection.ForEach(x =>
                     {
                         filesModel.Add(new FileSavingModel(x.Name, x.Extension, x.ContentType, x.Size, Convert.FromBase64String(x.File), userId, Id));
                     });
