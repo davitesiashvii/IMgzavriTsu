@@ -35,6 +35,7 @@ namespace IMgzavri.Queries.Handlers.Statement
                 return Result.Error("დაფიქსირდა სისტემური შეცდომა");
 
             var carVertify = context.Cars.FirstOrDefault(x => x.Id == statment.CarId).IsVertify;
+
             if(carVertify == null || carVertify == false)
             {
                 return Result.Error("Statment car is not vertifed");

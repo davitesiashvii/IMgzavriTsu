@@ -11,7 +11,7 @@ namespace IMgzavri.Api.Controllers
 {
     [Route("api/profile")]
     [ApiController]
-    [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
     public class ProfileController : BaseController
     {
         public ProfileController(IMediator mediator) : base(mediator)

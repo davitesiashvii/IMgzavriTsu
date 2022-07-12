@@ -21,13 +21,17 @@ namespace IMgzavri.Commands.Handlers.Car
 
             FileSavingResult res = null;
             var Id = Guid.NewGuid();
-            try
+            if(cmd.MainImage != null)
             {
-                var fileSavingModel = new FileSavingModel(cmd.MainImage.Name, cmd.MainImage.Extension, cmd.MainImage.ContentType, cmd.MainImage.Size, Convert.FromBase64String(cmd.MainImage.File), userId, Id);
+                try
+                {
+                    var fileSavingModel = new FileSavingModel(cmd.MainImage.Name, cmd.MainImage.Extension, cmd.MainImage.ContentType, cmd.MainImage.Size, Convert.FromBase64String(cmd.MainImage.File), userId, Id);
 
-                res = await FileStorage.UploadFile(fileSavingModel);
+                    res = await FileStorage.UploadFile(fileSavingModel);
+                }
+                catch { }
             }
-            catch { }
+            
             var isVertify = false;
             var carImages = new List<CarImage>() { };
             if (cmd.Images != null)

@@ -73,7 +73,7 @@ namespace IMgzavri.Api.Controllers
         [HttpGet("test")]
         public async Task<IActionResult> Test(CancellationToken ct)
         {
-            return Ok("respect");
+            return Ok("respect1");
         }
     }
 }

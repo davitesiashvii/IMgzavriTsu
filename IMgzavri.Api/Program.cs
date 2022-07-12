@@ -94,13 +94,13 @@ builder.Services.AddScoped<IFileStorageService, FileStorageService>();
 
 builder.Services.AddScoped<IFileProcessor, FileProcessor>();
 
-InitializeDatabase(builder.Services);
+builder.Services.AddLogging(x => x.AddTraceSource("IMgzavri"));
+//InitializeDatabase(builder.Services);
 
 
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -111,11 +111,11 @@ if (app.Environment.IsDevelopment())
 }
 app.UseDeveloperExceptionPage();
 
-app.UseCors(c => c.AllowAnyOrigin()
-               .WithOrigins(builder.Configuration.GetSection("GlobalSettings")["Origin"].Split(";"))
-               .WithMethods("GET", "POST", "PUT", "DELETE")
-               .AllowCredentials()
-               .AllowAnyHeader());
+//app.UseCors(c => c.AllowAnyOrigin()
+//               .WithOrigins(builder.Configuration.GetSection("GlobalSettings")["Origin"].Split(";"))
+//               .WithMethods("GET", "POST", "PUT", "DELETE")
+//               .AllowCredentials()
+//               .AllowAnyHeader());
 
 app.UseAuthentication();
 app.UseForwardedHeaders(new ForwardedHeadersOptions
@@ -144,13 +144,13 @@ app.MapControllers();
 app.Run();
 
 
-void InitializeDatabase(IServiceCollection services)
-{
-    var sp = services.BuildServiceProvider();
-    var scopeFactory = sp.GetRequiredService<IServiceScopeFactory>();
-    using var scope = scopeFactory.CreateScope();
-    using var context = sp.GetService(typeof(IMgzavriDbContext)) as IMgzavriDbContext;
-    context.Database.Migrate();
-}
+//void InitializeDatabase(IServiceCollection services)
+//{
+//    var sp = services.BuildServiceProvider();
+//    var scopeFactory = sp.GetRequiredService<IServiceScopeFactory>();
+//    using var scope = scopeFactory.CreateScope();
+//    using var context = sp.GetService(typeof(IMgzavriDbContext)) as IMgzavriDbContext;
+//    context.Database.Migrate();
+//}
 
 

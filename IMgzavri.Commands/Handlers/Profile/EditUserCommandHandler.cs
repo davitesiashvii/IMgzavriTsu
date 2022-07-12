@@ -26,15 +26,19 @@ namespace IMgzavri.Commands.Handlers.Profile
                 return Result.Error("ოპერაციის შესრტულების დროს მოხდა შეცდომა");
 
             
-            FileSavingResult res = null;         
+            FileSavingResult res = null;
 
-            try
+            if (cmd.Photo != null)
             {
-                var fileSavingModel = new FileSavingModel(cmd.Photo.Name, cmd.Photo.Extension, cmd.Photo.ContentType, cmd.Photo.Size, Convert.FromBase64String(cmd.Photo.File), curenentUserId, curenentUserId);
+                try
+                {
+                    var fileSavingModel = new FileSavingModel(cmd.Photo.Name, cmd.Photo.Extension, cmd.Photo.ContentType, cmd.Photo.Size, Convert.FromBase64String(cmd.Photo.File), curenentUserId, curenentUserId);
 
-                res = await FileStorage.UploadFile(fileSavingModel);
+                    res = await FileStorage.UploadFile(fileSavingModel);
+                }
+                catch { }
             }
-            catch { }
+           
 
             var profileLicenseImages = new List<ProfileImages>();
             var profileIdNumberImages = new List<ProfileImages>();

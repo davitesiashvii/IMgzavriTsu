@@ -10,3 +10,15 @@ C:\Projects\IMgzavri\IMgzavri.Shared\obj\Release\net6.0\IMgzavri.Shared.dll
 C:\Projects\IMgzavri\IMgzavri.Shared\obj\Release\net6.0\refint\IMgzavri.Shared.dll
 C:\Projects\IMgzavri\IMgzavri.Shared\obj\Release\net6.0\IMgzavri.Shared.pdb
 C:\Projects\IMgzavri\IMgzavri.Shared\obj\Release\net6.0\ref\IMgzavri.Shared.dll
+D:\img\IMgzavriTsu\IMgzavri.Shared\bin\Release\net6.0\IMgzavri.Shared.deps.json
+D:\img\IMgzavriTsu\IMgzavri.Shared\bin\Release\net6.0\IMgzavri.Shared.dll
+D:\img\IMgzavriTsu\IMgzavri.Shared\bin\Release\net6.0\IMgzavri.Shared.pdb
+D:\img\IMgzavriTsu\IMgzavri.Shared\obj\Release\net6.0\IMgzavri.Shared.csproj.AssemblyReference.cache
+D:\img\IMgzavriTsu\IMgzavri.Shared\obj\Release\net6.0\IMgzavri.Shared.GeneratedMSBuildEditorConfig.editorconfig
+D:\img\IMgzavriTsu\IMgzavri.Shared\obj\Release\net6.0\IMgzavri.Shared.AssemblyInfoInputs.cache
+D:\img\IMgzavriTsu\IMgzavri.Shared\obj\Release\net6.0\IMgzavri.Shared.AssemblyInfo.cs
+D:\img\IMgzavriTsu\IMgzavri.Shared\obj\Release\net6.0\IMgzavri.Shared.csproj.CoreCompileInputs.cache
+D:\img\IMgzavriTsu\IMgzavri.Shared\obj\Release\net6.0\IMgzavri.Shared.dll
+D:\img\IMgzavriTsu\IMgzavri.Shared\obj\Release\net6.0\refint\IMgzavri.Shared.dll
+D:\img\IMgzavriTsu\IMgzavri.Shared\obj\Release\net6.0\IMgzavri.Shared.pdb
+D:\img\IMgzavriTsu\IMgzavri.Shared\obj\Release\net6.0\ref\IMgzavri.Shared.dll
